@@ -70,7 +70,6 @@ export default function page() {
       // Send OTP
       const generatedOTP = generateOTP();
       const otpPayload = { phoneNumber: mobileNumber, otp: generatedOTP };
-      console.log(otpPayload);
       const res = await fetch("/api/login", {
         method: "POST",
         headers: {

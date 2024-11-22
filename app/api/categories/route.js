@@ -12,7 +12,7 @@ export const GET = async (request) => {
 
     return new Response(JSON.stringify(categories), { status: 200 });
   } catch (error) {
-    console.log(error.message);
+    //console.log(error.message);
     return new Response("Something went wrong", { status: 500 });
   }
 };
@@ -36,7 +36,7 @@ export const POST = async (request) => {
 
     return new Response(JSON.stringify(newItem), { status: 200 });
   } catch (error) {
-    console.log(error.message);
+    //console.log(error.message);
     return new Response("Something went wrong", { status: 500 });
   }
 };
@@ -49,7 +49,7 @@ export const PUT = async (request) => {
 
     let existingItem = await Category.findOne({ category_id: id }); 
 
-    console.log(existingItem);
+    //console.log(existingItem);
     
     if (!existingItem) {
       return new Response("Invalid Item ID", { status: 400 });
@@ -66,14 +66,12 @@ export const PUT = async (request) => {
     existingItem.category_id = itemFormData.category_id;
     existingItem.name = itemFormData.name;
     existingItem.image = itemFormData.image;
-
-    console.log(existingItem);
     
     await existingItem.save();
 
     return new Response(JSON.stringify(existingItem), { status: 200 });
   } catch (error) {
-    console.log(error.message);
+    //console.log(error.message);
     return new Response("Something went wrong", { status: 500 });
   }
 };
@@ -88,16 +86,13 @@ export const DELETE = async (request) => {
     if (!id)
       return new Response("Item ID is required", { status: 400 });
 
-    const item = await Category.findOne({ category_id: id });    
-
-    console.log(id,item);
-    
+    const item = await Category.findOne({ category_id: id });        
 
     await item.deleteOne();
 
     return new Response("Item Deleted Successfully", { status: 200 });
   } catch (error) {
-    console.log(error.message);
+    //console.log(error.message);
     return new Response("Something went wrong", { status: 500 });
   }
 };

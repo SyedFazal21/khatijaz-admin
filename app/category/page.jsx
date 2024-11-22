@@ -49,7 +49,7 @@ export default function CardDetails() {
         toast.error("Something went wrong");
       }
     } catch (error) {
-      console.log(error);
+      //console.log(error);
       toast.error("Something went wrong");
     }
   };
@@ -74,7 +74,7 @@ export default function CardDetails() {
         toast.error("Something went wrong");
       }
     } catch (error) {
-      console.log(error);
+      //console.log(error);
       toast.error("Something went wrong");
     }
   };
@@ -95,7 +95,7 @@ export default function CardDetails() {
         toast.error("Something went wrong");
       }
     } catch (error) {
-      console.log(error);
+      //console.log(error);
       toast.error("Something went wrong");
     }
   };

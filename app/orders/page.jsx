@@ -36,7 +36,6 @@ export default function page() {
         const data = await res.json();
         setOrders(data.orders);
         setTotalItems(data.total);
-        console.log("orders", data.orders);
       }
     };
 

@@ -31,7 +31,6 @@ export default function Hero() {
       <ul className="flex flex-wrap -mb-px">
         {categories.length > 0 && categories.map((cat) => (
           <li key={cat.category_id} className="">
-            {console.log(cat)}
             <Link
               href={`/admin?id=${cat.category_id}`}
               className={`inline-block p-4 text-black border-b-2 border-blue-600 ${id == cat.category_id ? 'border-b-2 border-b-red-500' : ''} rounded-t-lg dark:text-black-500`}

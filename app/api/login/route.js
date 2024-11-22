@@ -7,7 +7,6 @@ export const POST = async (request) => {
   try {
     await connectDB();
     const { email, password } = await request.json();
-    console.log(phoneNumber, otp)
 
     if(email == "superadmin@khatijaz.com" && password == "khatijaz@123")
       return new Response("Otp Sent successfully", { status: 200 });

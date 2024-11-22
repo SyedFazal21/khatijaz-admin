@@ -1,5 +1,6 @@
 import connectDB from "@/config/database";
 import Items from "@/models/Items";
+const mongoose = require('mongoose');
 
 export const dynamic = "force-dynamic";
 
@@ -11,7 +12,7 @@ export const GET = async (request) => {
 
     return new Response(JSON.stringify(items), { status: 200 });
   } catch (error) {
-    console.log(error.message);
+    //console.log(error.message);
     return new Response("Something went wrong", { status: 500 });
   }
 };
@@ -20,12 +21,10 @@ export const POST = async (request) => {
   try {
     await connectDB();
 
-    const totalItems = await Items.countDocuments({});
-
     const formData = await request.formData();
 
     const newItem = new Items({
-      _id: totalItems + 1,
+      _id: new mongoose.Types.ObjectId().toString(),
       category_id: formData.get("category_id"),
       name: formData.get("name"),
       description: formData.get("description"),
@@ -40,7 +39,7 @@ export const POST = async (request) => {
 
     return new Response(JSON.stringify(newItem), { status: 200 });
   } catch (error) {
-    console.log(error.message);
+    //console.log(error.message);
     return new Response("Something went wrong", { status: 500 });
   }
 };
@@ -78,7 +77,7 @@ export const PUT = async (request) => {
 
     return new Response(JSON.stringify(updatedItem), { status: 200 });
   } catch (error) {
-    console.log(error.message);
+    //console.log(error.message);
     return new Response("Something went wrong", { status: 500 });
   }
 };
@@ -99,7 +98,7 @@ export const DELETE = async (request) => {
 
     return new Response("Item Deleted Successfully", { status: 200 });
   } catch (error) {
-    console.log(error.message);
+    //console.log(error.message);
     return new Response("Something went wrong", { status: 500 });
   }
 };

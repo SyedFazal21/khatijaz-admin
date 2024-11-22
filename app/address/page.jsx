@@ -36,8 +36,6 @@ export default function page() {
 
       const distanceInKm = distance / 1000;
 
-      console.log(distanceInKm);
-
       return distanceInKm > 5;
     });
   };
@@ -46,7 +44,6 @@ export default function page() {
     const user = localStorage.getItem("LoggedInUserDetails");
     if (user) {
       const userDetails = JSON.parse(user);
-      console.log(userDetails);
       setMobileNumber(userDetails.mobile);
       setId(userDetails._id);
 
@@ -86,7 +83,6 @@ export default function page() {
 
     if (isLocationAvailable(location)) {
       setLocationUnavailable(true);
-      console.log("Location is not available");
       return;
     }
 
